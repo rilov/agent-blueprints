@@ -11,6 +11,7 @@ import os
 import time
 
 from langchain.chat_models import init_chat_model
+from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnableLambda, RunnableParallel
 
 
@@ -44,12 +45,12 @@ def fan_in(question, answers):
     if not model_name:
         return " ".join(answers.values())  # No AI: just join the answers.
 
-    model = init_chat_model(model_name)
+    model = init_chat_model(model_name) | StrOutputParser()
     return model.invoke(
         f"A customer asked: {question}\n"
         f"Our systems said: {answers}\n"
         "Reply to the customer in two short sentences. Use only these facts."
-    ).text
+    )
 
 
 async def main():

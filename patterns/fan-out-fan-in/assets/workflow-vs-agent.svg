@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" role="img" aria-label="In a workflow, the code always calls the same three systems. In an agent, the model chooses tools in a loop until it can answer.">
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+    .ink{fill:#16171D}.muted{fill:#5B5E6B}.panel{fill:#F2F3F8}.wire{stroke:#8E91A0}
+    @media (prefers-color-scheme:dark){.ink{fill:#ECEDF3}.muted{fill:#A5A8B8}.panel{fill:#262833}}
+  </style>
+  <defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#8E91A0"/></marker></defs>
+  <rect x="4" y="4" width="484" height="432" rx="22" class="panel"/>
+  <rect x="512" y="4" width="484" height="432" rx="22" class="panel"/>
+  <text x="34" y="52" font-size="27" font-weight="800" class="ink">Workflow</text>
+  <text x="34" y="84" font-size="20" font-weight="500" class="muted">Your code decides the steps</text>
+  <text x="542" y="52" font-size="27" font-weight="800" class="ink">Agent</text>
+  <text x="542" y="84" font-size="20" font-weight="500" class="muted">The model decides the steps</text>
+
+  <g fill="none" class="wire" stroke-width="2.5" marker-end="url(#a)">
+    <path d="M246 164L111 199"/><path d="M246 164V199"/><path d="M246 164L381 199"/>
+    <path d="M111 251L246 287"/><path d="M246 251V287"/><path d="M381 251L246 287"/>
+    <path d="M246 343V368"/>
+    <path d="M754 164V190"/>
+    <path d="M680 218H642"/>
+    <path d="M578 246C578 312 650 316 700 278"/>
+    <path d="M754 274V368"/>
+  </g>
+  <rect x="146" y="112" width="200" height="52" rx="11" fill="#1473E6"/>
+  <text x="246" y="145" font-size="19" font-weight="700" text-anchor="middle" fill="#fff">Question</text>
+  <g font-size="18" font-weight="700" text-anchor="middle" fill="#fff">
+    <rect x="34" y="201" width="130" height="50" rx="10" fill="#00806A"/><text x="99" y="232">Store</text>
+    <rect x="181" y="201" width="130" height="50" rx="10" fill="#C94F02"/><text x="246" y="232">Warehouse</text>
+    <rect x="328" y="201" width="130" height="50" rx="10" fill="#DE1283"/><text x="393" y="232">Courier</text>
+  </g>
+  <rect x="146" y="290" width="200" height="53" rx="11" fill="#7A3CF0"/>
+  <text x="246" y="323" font-size="19" font-weight="700" text-anchor="middle" fill="#fff">Write reply</text>
+  <text x="246" y="398" font-size="19" font-weight="700" text-anchor="middle" class="ink">Same steps every time</text>
+
+  <rect x="654" y="112" width="200" height="52" rx="11" fill="#1473E6"/>
+  <text x="754" y="145" font-size="19" font-weight="700" text-anchor="middle" fill="#fff">Question</text>
+  <rect x="680" y="192" width="148" height="82" rx="11" fill="#7A3CF0"/>
+  <text x="754" y="228" font-size="19" font-weight="700" text-anchor="middle" fill="#fff">Model</text>
+  <text x="754" y="252" font-size="16" font-weight="500" text-anchor="middle" fill="#fff">What next?</text>
+  <rect x="542" y="192" width="98" height="54" rx="10" fill="#00806A"/>
+  <text x="591" y="224" font-size="17" font-weight="700" text-anchor="middle" fill="#fff">Tools</text>
+  <text x="591" y="176" font-size="16" font-weight="600" text-anchor="middle" class="muted">Call tools</text>
+  <text x="618" y="326" font-size="16" font-weight="600" text-anchor="middle" class="muted">Results</text>
+  <text x="754" y="398" font-size="19" font-weight="700" text-anchor="middle" class="ink">Answers when it has enough</text>
+</svg>
