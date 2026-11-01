@@ -160,15 +160,15 @@ Results are keyed by name, so it doesn't matter which worker finishes first.
 The aggregator turns those three facts into one reply.
 
 ```python
-model = init_chat_model(model_name)
+model = init_chat_model(model_name) | StrOutputParser()
 reply = model.invoke(
     f"A customer asked: {question}\n"
     f"Our systems said: {answers}\n"
     "Reply to the customer in two short sentences. Use only these facts."
-).text
+)
 ```
 
-The instruction `Use only these facts` does real work. It tells the model not to fill any gaps with a guess.
+`StrOutputParser` pulls the plain text out of the model's response. The instruction `Use only these facts` does real work. It tells the model not to fill any gaps with a guess.
 
 Notice that the model only runs at the end. The fan-out here is ordinary data lookups, so each customer question costs one model call.
 

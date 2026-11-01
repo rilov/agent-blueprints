@@ -14,7 +14,7 @@ import operator
 import os
 import time
 from collections import Counter
-from typing import Annotated, Literal, TypedDict
+from typing import Annotated, Literal, Optional, TypedDict
 
 import kagglehub
 import pandas as pd
@@ -48,7 +48,7 @@ sellers = read("sellers").set_index("seller_id")
 reviews = read("order_reviews")
 
 
-def day(value) -> str | None:
+def day(value) -> Optional[str]:
     return None if pd.isna(value) else str(value.date())
 
 
