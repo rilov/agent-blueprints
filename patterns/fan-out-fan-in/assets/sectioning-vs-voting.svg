@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" role="img" aria-label="Sectioning asks different questions and merges the answers. Voting asks the same question and compares the answers.">
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+    .ink{fill:#16171D}.muted{fill:#5B5E6B}.panel{fill:#F2F3F8}
+    @media (prefers-color-scheme:dark){.ink{fill:#ECEDF3}.muted{fill:#A5A8B8}.panel{fill:#262833}}
+  </style>
+  <rect x="4" y="4" width="484" height="392" rx="22" class="panel"/>
+  <rect x="512" y="4" width="484" height="392" rx="22" class="panel"/>
+  <text x="34" y="54" font-size="27" font-weight="800" class="ink">Sectioning</text>
+  <text x="34" y="86" font-size="20" font-weight="500" class="muted">Different questions, then merge</text>
+  <text x="542" y="54" font-size="27" font-weight="800" class="ink">Voting</text>
+  <text x="542" y="86" font-size="20" font-weight="500" class="muted">Same question, then compare</text>
+  <g font-size="19" font-weight="600" fill="#fff">
+    <rect x="34" y="112" width="424" height="52" rx="11" fill="#00806A"/><text x="52" y="145">Store: Is it paid?</text><text x="440" y="145" text-anchor="end" font-weight="800">Yes</text>
+    <rect x="34" y="174" width="424" height="52" rx="11" fill="#C94F02"/><text x="52" y="207">Warehouse: Is it packed?</text><text x="440" y="207" text-anchor="end" font-weight="800">Yes</text>
+    <rect x="34" y="236" width="424" height="52" rx="11" fill="#DE1283"/><text x="52" y="269">Courier: Was it collected?</text><text x="440" y="269" text-anchor="end" font-weight="800">No</text>
+    <rect x="542" y="112" width="424" height="52" rx="11" fill="#7A3CF0"/><text x="560" y="145">Reviewer 1: Was it collected?</text><text x="948" y="145" text-anchor="end" font-weight="800">Yes</text>
+    <rect x="542" y="174" width="424" height="52" rx="11" fill="#7A3CF0"/><text x="560" y="207">Reviewer 2: Was it collected?</text><text x="948" y="207" text-anchor="end" font-weight="800">No</text>
+    <rect x="542" y="236" width="424" height="52" rx="11" fill="#7A3CF0"/><text x="560" y="269">Reviewer 3: Was it collected?</text><text x="948" y="269" text-anchor="end" font-weight="800">Yes</text>
+  </g>
+  <text x="34" y="330" font-size="21" font-weight="700" class="ink">Merged: “Packed, waiting for the courier.”</text>
+  <text x="34" y="364" font-size="19" font-weight="500" class="muted">Use when the facts are in different places.</text>
+  <text x="542" y="330" font-size="21" font-weight="700" class="ink">They disagree: check the pickup scan.</text>
+  <text x="542" y="364" font-size="19" font-weight="500" class="muted">Use when one fact is hard to interpret.</text>
+</svg>

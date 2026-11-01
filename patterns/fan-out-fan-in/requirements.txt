@@ -1,0 +1,5 @@
+langchain>=1.4
+langchain-core>=1.7
+langgraph>=1.2
+pandas>=2.2
+kagglehub>=0.3

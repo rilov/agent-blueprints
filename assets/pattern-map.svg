@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" role="img" aria-label="Small diagrams of five patterns: prompt chaining, routing, fan-out/fan-in, orchestrator-workers and evaluator-optimizer">
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+    .ink{fill:#16171D}.muted{fill:#5B5E6B}.panel{fill:#F2F3F8}.wire{stroke:#8E91A0}
+    @media (prefers-color-scheme:dark){.ink{fill:#ECEDF3}.muted{fill:#A5A8B8}.panel{fill:#262833}}
+  </style>
+  <g class="panel">
+    <rect x="4" y="4" width="184" height="292" rx="18"/><rect x="207" y="4" width="184" height="292" rx="18"/>
+    <rect x="410" y="4" width="184" height="292" rx="18"/><rect x="613" y="4" width="184" height="292" rx="18"/>
+    <rect x="816" y="4" width="180" height="292" rx="18"/>
+  </g>
+  <g fill="none" class="wire" stroke-width="3">
+    <path d="M46 120H146"/>
+    <path d="M250 120L340 60M250 120L340 120M250 120L340 180"/>
+    <path d="M450 120L502 60L554 120M450 120H554M450 120L502 180L554 120"/>
+    <path d="M705 74L650 180M705 74V180M705 74L760 180"/>
+    <path d="M870 84C960 84 960 158 870 158M942 84C850 84 850 158 942 158"/>
+  </g>
+  <circle cx="46" cy="120" r="16" fill="#1473E6"/><circle cx="96" cy="120" r="16" fill="#1473E6"/><circle cx="146" cy="120" r="16" fill="#1473E6"/>
+  <circle cx="250" cy="120" r="18" fill="#DE1283"/><circle cx="340" cy="60" r="14" fill="#DE1283" opacity=".35"/><circle cx="340" cy="120" r="16" fill="#DE1283"/><circle cx="340" cy="180" r="14" fill="#DE1283" opacity=".35"/>
+  <circle cx="450" cy="120" r="16" fill="#7A3CF0"/><circle cx="502" cy="60" r="14" fill="#7A3CF0"/><circle cx="502" cy="120" r="14" fill="#7A3CF0"/><circle cx="502" cy="180" r="14" fill="#7A3CF0"/><circle cx="554" cy="120" r="16" fill="#7A3CF0"/>
+  <circle cx="705" cy="74" r="20" fill="#00997F"/><circle cx="650" cy="180" r="14" fill="#00997F"/><circle cx="705" cy="180" r="14" fill="#00997F"/><circle cx="760" cy="180" r="14" fill="#00997F"/>
+  <circle cx="870" cy="121" r="20" fill="#E85D04"/><circle cx="942" cy="121" r="20" fill="#E85D04"/>
+  <g text-anchor="middle" font-size="19" font-weight="700" class="ink">
+    <text x="96" y="248">Prompt</text><text x="96" y="272">chaining</text>
+    <text x="299" y="260">Routing</text>
+    <text x="502" y="248">Fan-out/</text><text x="502" y="272">fan-in</text>
+    <text x="705" y="248">Orchestrator-</text><text x="705" y="272">workers</text>
+    <text x="906" y="248">Evaluator-</text><text x="906" y="272">optimizer</text>
+  </g>
+</svg>
