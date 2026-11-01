@@ -4,7 +4,9 @@
 
 Runnable architecture patterns for AI agents, explained in plain language.
 
-Each blueprint gives you a simple guide, a picture, and real code you can run in about a minute. The code works with Claude, GPT, Gemini, or a free local model.
+Each blueprint gives you a simple guide, a picture, and real code you can run in about a minute. The code is built to work with Claude, GPT, Gemini, or a free local model.
+
+Where it helps, a blueprint shows both a **workflow**, where your code decides the steps, and an **agent**, where the model decides. Start with the workflow, and use an agent when you can't know the steps in advance.
 
 ## Why architecture matters
 
@@ -40,7 +42,7 @@ Once you know the patterns, you can recognize the shape of a problem and reuse a
 
 | Pattern | In one line | Status |
 |---|---|---|
-| [Fan-out/fan-in](patterns/fan-out-fan-in/) | Ask several helpers at once, then combine their answers | Ready |
+| [Fan-out/fan-in](patterns/fan-out-fan-in/) | Ask several helpers at once, then combine their answers | Ready: workflow and agent |
 | Prompt chaining | Break a task into steps, where each step uses the last result | Planned |
 | Routing | Send each request to the right specialist | Planned |
 | Orchestrator-workers | Let a lead agent plan the work and hand it out | Planned |
@@ -77,6 +79,7 @@ patterns/
 └── fan-out-fan-in/
     ├── README.md          The simple guide
     ├── example.py         The smallest working version
+    ├── agent.py           The agent version, where the model decides
     ├── try_it.py          The same idea on real data
     ├── try_it.ipynb       Notebook version
     ├── requirements.txt   What to install

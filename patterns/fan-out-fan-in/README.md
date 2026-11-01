@@ -17,6 +17,7 @@
 - [When you don't know the number of tasks](#when-you-dont-know-the-number-of-tasks)
 - [What happens when a task fails](#what-happens-when-a-task-fails)
 - [How to design the fan-in](#how-to-design-the-fan-in)
+- [Workflow or agent?](#workflow-or-agent)
 - [Try it on real data](#try-it-on-real-data)
 - [When to use it, and when not to](#when-to-use-it-and-when-not-to)
 - [Common mistakes](#common-mistakes)
@@ -320,6 +321,100 @@ The fan-out is usually easy. Most of the real design decisions are in the fan-in
 | **What if the model and the record disagree?** | Send it to a person. This is what `try_it.py` does when the record says delivered, but every reviewer reads the complaint as not received. |
 
 Use plain code for the fan-in when the rule is clear, such as counting votes. Use a model when you need judgment or natural language, such as writing the reply.
+
+## Workflow or agent?
+
+Everything so far has been a **workflow**. Your code decides every step, and it always calls the same systems. The model only writes the reply or casts a vote.
+
+In an **agent**, the model decides the steps. It chooses which tools to call, reads the results, and decides what to do next. Fan-out/fan-in still happens, but the model chooses when and how.
+
+![In a workflow, the code sets the steps. In an agent, the model chooses tools in a loop.](assets/workflow-vs-agent.svg)
+
+| | Workflow: [example.py](example.py) | Agent: [agent.py](agent.py) |
+|---|---|---|
+| **Who decides the steps?** | Your code | The model |
+| **Which systems are called?** | Always all three | Only the ones the model needs |
+| **Number of steps** | Fixed | Changes per question |
+| **Can it adapt to results?** | No | Yes |
+| **Needs an API key?** | No | Yes |
+
+### Try the agent
+
+The agent needs a real AI model, and each run makes paid model calls unless you use a free local one. Its model must support tool calling.
+
+```bash
+pip install langchain-openai
+export OPENAI_API_KEY=your-key
+export MODEL=openai:gpt-5
+python agent.py
+```
+
+The default question is "Where's my order A-1042, and can I still cancel it?" A good run looks like this, but your model may choose different steps:
+
+```text
+Turn 1: the model chose check_store, check_courier
+        2 tool(s) finished in 1.0s
+Turn 2: the model chose check_cancellation_policy
+        1 tool(s) finished in 1.0s
+
+Agent: Your order is still at the warehouse, and you can cancel it for free
+until the courier collects it.
+```
+
+Notice what the model did. It fanned out to two tools at once, and read the results. Then it saw that the parcel hadn't been collected, so it decided to check the cancellation rules. Nobody coded that second step.
+
+Now ask something smaller:
+
+```bash
+python agent.py "Is order A-1042 paid?"
+```
+
+The model should only need the store. A workflow would still call all three systems.
+
+### How the agent works
+
+All of the agent's logic is one loop in [agent.py](agent.py):
+
+```python
+for turn in range(1, MAX_TURNS + 1):
+    # The model decides: call some tools, or answer.
+    response = await model.ainvoke(messages)
+    messages.append(response)
+
+    if not response.tool_calls:
+        return StrOutputParser().invoke(response)
+
+    # Fan-out: run every tool the model chose at the same time.
+    results = await asyncio.gather(*(run_tool(call) for call in response.tool_calls))
+
+    # Fan-in: give every result back to the model.
+    messages.extend(results)
+```
+
+Here's what each part does:
+
+1. **The model chooses.** `bind_tools` shows the model what tools exist. It reads each tool's description and decides what to call.
+2. **Fan-out.** When the model asks for several tools at once, `asyncio.gather` runs them at the same time.
+3. **Fan-in.** Every result goes back to the model, which decides whether it has enough to answer.
+4. **Repeat or stop.** The loop ends when the model answers without asking for a tool.
+
+Two safety checks matter here:
+
+- **`MAX_TURNS`** stops an agent that never finishes, which would otherwise keep costing money.
+- **`run_tool`** turns any failure into a message. The model then sees "This tool failed" and can tell the customer what it couldn't confirm.
+
+### Which should I use?
+
+**Start with a workflow.** When you know the steps, it's cheaper, faster, easier to test and more predictable. For "Where's my order?", a workflow is often the better design.
+
+**Use an agent** when you can't know the steps in advance, because they depend on the question or on what the tools return.
+
+| | Workflow | Agent |
+|---|---|---|
+| **Best for** | Known, repeatable steps | Open-ended requests |
+| **Cost** | Predictable | Varies per request |
+| **Testing** | Same input, same steps | The steps can change between runs |
+| **Main risk** | Doing unnecessary work | Choosing badly or looping |
 
 ## Try it on real data
 
