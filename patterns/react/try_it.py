@@ -130,13 +130,18 @@ def react_with_model(city: str) -> str:
         messages.append(response)
         if not response.tool_calls:
             return response.content
-        for call in response.tool_calls[:1]:
-            print(f"Action {turn}:      {call['name']}({call['args']})")
-            try:
-                result = TOOLS[call["name"]](*call["args"].values())
-            except Exception as exc:
-                result = f"This tool failed: {type(exc).__name__}"
-            print(f"Observation {turn}: {result}\n")
+        # Every call needs an answer, or the API rejects the conversation.
+        for i, call in enumerate(response.tool_calls):
+            if i == 0:
+                print(f"Action {turn}:      {call['name']}({call['args']})")
+                try:
+                    result = TOOLS[call["name"]](*call["args"].values())
+                except Exception as exc:
+                    result = f"This tool failed: {type(exc).__name__}"
+                print(f"Observation {turn}: {result}\n")
+            else:
+                result = ("Skipped: call one tool at a time. "
+                          "Try this again on your next turn.")
             messages.append(ToolMessage(content=result, tool_call_id=call["id"]))
     return "I ran out of turns. Decide yourself."
 

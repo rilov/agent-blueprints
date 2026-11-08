@@ -1,2 +1,3 @@
 langchain>=1.4
 langchain-core>=1.7
+langchain-openai>=1.0  # For openai:* models. Use langchain-anthropic, langchain-google-genai, etc. for other providers.

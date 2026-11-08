@@ -65,14 +65,20 @@ def run_agent(question: str) -> str:
         if not response.tool_calls:
             return StrOutputParser().invoke(response)
 
-        # Action + Observation: run the tool, give the result back.
-        for call in response.tool_calls[:1]:  # One step at a time: ReAct.
-            print(f"Action {turn}: {call['name']}({call['args']})")
-            try:
-                result = TOOLS[call["name"]].invoke(call["args"])
-            except Exception as exc:
-                result = f"This tool failed: {type(exc).__name__}"
-            print(f"Observation {turn}: {result}\n")
+        # Action + Observation: run the first tool, give the result back.
+        # Every other call still needs an answer, or the API rejects the
+        # conversation - tell the model it was skipped so it can retry.
+        for i, call in enumerate(response.tool_calls):
+            if i == 0:
+                print(f"Action {turn}: {call['name']}({call['args']})")
+                try:
+                    result = TOOLS[call["name"]].invoke(call["args"])
+                except Exception as exc:
+                    result = f"This tool failed: {type(exc).__name__}"
+                print(f"Observation {turn}: {result}\n")
+            else:
+                result = ("Skipped: call one tool at a time. "
+                          "Try this again on your next turn.")
             messages.append(
                 ToolMessage(content=result, tool_call_id=call["id"]))
 
