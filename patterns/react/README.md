@@ -119,6 +119,8 @@ MODEL=openai:gpt-5 python agent.py
 MODEL=anthropic:claude-opus-4-5 python agent.py "Can I bike to the market on Sunday?"
 ```
 
+Each provider needs its partner package (`langchain-openai`, `langchain-anthropic`, ...) and your key exported (`OPENAI_API_KEY`, ...). If your OpenAI org isn't verified for `gpt-5` yet, `MODEL=openai:gpt-4o-mini` works fine.
+
 Any provider works - see [Use any AI model](../fan-out-fan-in/README.md#use-any-ai-model) in the fan-out/fan-in blueprint.
 
 ## The code, step by step
