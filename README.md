@@ -43,6 +43,7 @@ Once you know the patterns, you can recognize the shape of a problem and reuse a
 | Pattern | In one line | Status |
 |---|---|---|
 | [Fan-out/fan-in](patterns/fan-out-fan-in/) | Ask several helpers at once, then combine their answers | Ready: workflow and agent |
+| [ReAct](patterns/react/) | Think, act, look, repeat - until the agent knows enough | Ready: workflow and agent |
 | Prompt chaining | Break a task into steps, where each step uses the last result | Planned |
 | Routing | Send each request to the right specialist | Planned |
 | Orchestrator-workers | Let a lead agent plan the work and hand it out | Planned |

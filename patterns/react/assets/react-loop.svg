@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-label="The ReAct loop: a question enters a cycle of Thought, Action and Observation, and exits as a final answer once the loop knows enough">
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+    .ink{fill:#16171D}.muted{fill:#5B5E6B}.panel{fill:#F2F3F8}.wire{stroke:#8E91A0}.tag{fill:#7A3CF0}
+    @media (prefers-color-scheme:dark){.ink{fill:#ECEDF3}.muted{fill:#A5A8B8}.panel{fill:#262833}.tag{fill:#B49BFF}}
+  </style>
+  <defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#8E91A0"/></marker></defs>
+  <g fill="none" class="wire" stroke-width="2.5" marker-end="url(#a)">
+    <path d="M140 210H240"/>
+    <path d="M360 190C400 190 385 110 390 105"/>
+    <path d="M450 110V260"/>
+    <path d="M390 285C330 285 300 270 300 260"/>
+    <path d="M360 220C520 220 640 300 722 300"/>
+  </g>
+  <rect x="10" y="160" width="130" height="100" rx="16" fill="#1473E6"/>
+  <text x="75" y="205" font-size="21" font-weight="700" text-anchor="middle" fill="#fff">Your</text>
+  <text x="75" y="233" font-size="21" font-weight="700" text-anchor="middle" fill="#fff">question</text>
+  <g text-anchor="middle" fill="#fff">
+    <rect x="240" y="160" width="120" height="100" rx="16" fill="#00806A"/>
+    <text x="300" y="205" font-size="21" font-weight="700">Thought</text>
+    <text x="300" y="233" font-size="17">What's missing?</text>
+    <rect x="390" y="60" width="120" height="50" rx="14" fill="#C94F02"/>
+    <text x="450" y="92" font-size="20" font-weight="700">Action</text>
+    <rect x="390" y="260" width="120" height="50" rx="14" fill="#DE1283"/>
+    <text x="450" y="292" font-size="20" font-weight="700">Observation</text>
+  </g>
+  <text x="335" y="140" font-size="16" text-anchor="middle" class="muted">call a tool</text>
+  <text x="345" y="275" font-size="16" text-anchor="middle" class="muted">result feeds back</text>
+  <rect x="722" y="250" width="168" height="100" rx="16" fill="#7A3CF0"/>
+  <text x="806" y="295" font-size="21" font-weight="700" text-anchor="middle" fill="#fff">Final</text>
+  <text x="806" y="323" font-size="21" font-weight="700" text-anchor="middle" fill="#fff">answer</text>
+  <text x="450" y="400" font-size="22" font-weight="800" text-anchor="middle" class="tag">Repeat until the agent knows enough</text>
+</svg>
