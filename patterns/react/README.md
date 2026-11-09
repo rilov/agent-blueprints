@@ -125,24 +125,63 @@ Any provider works - see [Use any AI model](../fan-out-fan-in/README.md#use-any-
 
 ## The code, step by step
 
-The whole pattern is one `for` loop:
+Let's walk through `agent.py` and see what each part does.
+
+### The tools
+
+```python
+@tool
+def check_weather(when: str) -> str:
+    """Check the weather forecast for a time like 'tomorrow morning'."""
+    return "Light rain until 9am, then sunny and 18C."
+```
+
+These functions are the tools the agent can use. They are not real tools - `check_weather` doesn't call a weather API, it just returns a hardcoded string. We're mimicking tools so you can learn the pattern without API keys or setup. In a real app you'd call a real weather API here; the agent wouldn't know the difference.
+
+The `@tool` decorator turns a plain function into something the model can request. The model never sees the code - it only sees the function **name**, its **arguments**, and the **docstring**. The docstring is how the model decides whether this tool is useful, so write it like instructions, not a comment.
+
+There are four of them: `check_weather`, `check_calendar`, `check_bike`, `check_bus`. We collect them in `TOOLS`, a dict from name to function, so the loop can look up whichever one the model asks for.
+
+### The setup
+
+```python
+model = init_chat_model(os.environ["MODEL"]).bind_tools(list(TOOLS.values()))
+messages = [SystemMessage(INSTRUCTIONS), HumanMessage(question)]
+```
+
+- `init_chat_model("openai:gpt-4o-mini")` creates a connection to the model named in `MODEL`.
+- `.bind_tools(...)` registers the four tools with the model, so it knows they exist and can request them by name.
+- `messages` is the conversation history. It starts with two messages: `SystemMessage` holds `INSTRUCTIONS` (the rules: be a day-planning assistant, call one tool per step, use only what tools tell you), and `HumanMessage` holds the user's question.
+
+Everything the model "remembers" lives in this `messages` list. There is no other memory.
+
+### The loop
 
 ```python
 for turn in range(1, MAX_TURNS + 1):
-    response = model.invoke(messages)          # Thought
+    response = model.invoke(messages)
     messages.append(response)
-    if not response.tool_calls:                # "I know enough"
-        return response.content
-    call = response.tool_calls[0]              # Action
-    result = TOOLS[call["name"]](call["args"]) # run the tool
-    messages.append(ToolMessage(result, ...))  # Observation
+
+    if not response.tool_calls:
+        return StrOutputParser().invoke(response)
+
+    call = response.tool_calls[0]
+    try:
+        result = TOOLS[call["name"]].invoke(call["args"])
+    except Exception as exc:
+        result = f"This tool failed: {type(exc).__name__}"
+    messages.append(ToolMessage(content=result, tool_call_id=call["id"]))
 ```
 
-Three details carry the weight:
+This loop is the ReAct pattern. Each iteration does three things:
 
-- **Memory is just a list.** Every thought, action and observation is appended to `messages`. The model sees the whole trail each turn - that's how it avoids asking the same question twice.
-- **One tool per turn.** Forcing a single action keeps the thought→action→observation rhythm visible, and makes the trace easy to debug.
-- **The exit is a thought, not a flag.** The loop ends when the model stops asking for tools. Your code only supplies facts; the model decides when it's done.
+1. **Thought** - `model.invoke(messages)` sends the whole conversation to the model. It reasons about what's still missing and replies with either a tool call (`check_weather("tomorrow morning")`) or a plain-text answer.
+2. **Exit check** - `if not response.tool_calls` means the model decided it knows enough and wrote the final answer instead of requesting a tool. We return that answer and the loop ends.
+3. **Action + Observation** - `response.tool_calls[0]` is the tool request. We look the tool up in `TOOLS` and run it (if it fails, the error message becomes the result instead of crashing). Then `ToolMessage(...)` appends the result to `messages`, so on the next iteration the model sees the question *and* everything it has learned so far.
+
+Then the loop repeats: the model reads the updated history, thinks again, picks the next tool - until it stops asking and answers, or `MAX_TURNS` (6) is hit and we return a fallback message.
+
+Note the model never runs tools itself. It only *requests* them; this `for` loop is what actually executes the call. That's the separation that keeps the agent safe and debuggable.
 
 ## A turn can fail
 
