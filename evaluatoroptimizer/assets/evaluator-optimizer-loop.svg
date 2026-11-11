@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-label="The evaluator-optimizer loop: the optimizer drafts an answer, the evaluator checks it. PASS returns the final answer, REVISE sends feedback back to the optimizer, and running out of rounds returns an honest 'could not verify'">
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+    .ink{fill:#16171D}.muted{fill:#5B5E6B}.panel{fill:#F2F3F8}.wire{stroke:#8E91A0}.tag{fill:#7A3CF0}
+    @media (prefers-color-scheme:dark){.ink{fill:#ECEDF3}.muted{fill:#A5A8B8}.panel{fill:#262833}.tag{fill:#B49BFF}}
+  </style>
+  <defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#8E91A0"/></marker></defs>
+  <g fill="none" class="wire" stroke-width="2.5" marker-end="url(#a)">
+    <path d="M150 210H210"/>
+    <path d="M380 210H470"/>
+    <path d="M640 190C690 190 680 105 722 105"/>
+    <path d="M640 230C690 230 680 325 722 325"/>
+    <path d="M555 260V340H295V264"/>
+  </g>
+  <rect x="10" y="160" width="140" height="100" rx="16" fill="#1473E6"/>
+  <g text-anchor="middle" fill="#fff">
+    <text x="80" y="205" font-size="21" font-weight="700">Question</text>
+    <text x="80" y="233" font-size="17">+ user's needs</text>
+    <rect x="210" y="160" width="170" height="100" rx="16" fill="#00806A"/>
+    <text x="295" y="205" font-size="21" font-weight="700">Optimizer</text>
+    <text x="295" y="233" font-size="17">ReAct agent drafts</text>
+    <rect x="470" y="160" width="170" height="100" rx="16" fill="#C94F02"/>
+    <text x="555" y="205" font-size="21" font-weight="700">Evaluator</text>
+    <text x="555" y="233" font-size="17">checks the draft</text>
+    <rect x="722" y="55" width="168" height="100" rx="16" fill="#7A3CF0"/>
+    <text x="806" y="100" font-size="21" font-weight="700">Final</text>
+    <text x="806" y="128" font-size="21" font-weight="700">answer</text>
+    <rect x="722" y="275" width="168" height="100" rx="16" fill="#5B5E6B"/>
+    <text x="806" y="320" font-size="19" font-weight="700">"Could not</text>
+    <text x="806" y="346" font-size="19" font-weight="700">verify a plan"</text>
+  </g>
+  <text x="425" y="198" font-size="16" text-anchor="middle" class="muted">draft</text>
+  <text x="662" y="120" font-size="17" font-weight="800" text-anchor="middle" class="ink">PASS</text>
+  <text x="662" y="314" font-size="16" text-anchor="middle" class="muted">out of</text>
+  <text x="662" y="334" font-size="16" text-anchor="middle" class="muted">rounds</text>
+  <text x="425" y="368" font-size="17" font-weight="800" text-anchor="middle" class="ink">REVISE + feedback</text>
+  <text x="425" y="390" font-size="16" text-anchor="middle" class="muted">"There is no bus home in the plan."</text>
+  <text x="450" y="40" font-size="22" font-weight="800" text-anchor="middle" class="tag">At most MAX_ROUNDS = 3 rounds</text>
+</svg>

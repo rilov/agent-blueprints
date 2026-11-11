@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" role="img" aria-label="The evaluator gets the question, the user's needs, the tool results and the draft in a fresh conversation. It does not get the agent's conversation and cannot call tools. It returns PASS, or REVISE with a list of gaps">
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+    .ink{fill:#16171D}.muted{fill:#5B5E6B}.panel{fill:#F2F3F8}.wire{stroke:#8E91A0}.out{stroke:#8E91A0}
+    @media (prefers-color-scheme:dark){.ink{fill:#ECEDF3}.muted{fill:#A5A8B8}.panel{fill:#262833}}
+  </style>
+  <defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#8E91A0"/></marker></defs>
+  <text x="125" y="26" font-size="17" font-weight="800" text-anchor="middle" class="ink">Given</text>
+  <g fill="none" class="wire" stroke-width="2.5" marker-end="url(#a)">
+    <path d="M240 63C330 63 330 135 416 135"/>
+    <path d="M240 123C330 123 330 155 416 155"/>
+    <path d="M240 183C330 183 330 175 416 175"/>
+    <path d="M240 243C330 243 330 195 416 195"/>
+    <path d="M600 165H696"/>
+  </g>
+  <g text-anchor="middle" fill="#fff" font-size="18" font-weight="700">
+    <rect x="10" y="40" width="230" height="46" rx="12" fill="#1473E6"/><text x="125" y="69">Question</text>
+    <rect x="10" y="100" width="230" height="46" rx="12" fill="#1473E6"/><text x="125" y="129">User's needs</text>
+    <rect x="10" y="160" width="230" height="46" rx="12" fill="#1473E6"/><text x="125" y="189">Tool results</text>
+    <rect x="10" y="220" width="230" height="46" rx="12" fill="#00806A"/><text x="125" y="249">The draft</text>
+  </g>
+  <rect x="420" y="110" width="180" height="110" rx="16" fill="#C94F02"/>
+  <text x="510" y="158" font-size="21" font-weight="700" text-anchor="middle" fill="#fff">Evaluator</text>
+  <text x="510" y="186" font-size="17" text-anchor="middle" fill="#fff">fresh conversation</text>
+  <rect x="700" y="110" width="190" height="110" rx="16" fill="#7A3CF0"/>
+  <text x="795" y="158" font-size="21" font-weight="700" text-anchor="middle" fill="#fff">PASS</text>
+  <text x="795" y="186" font-size="17" text-anchor="middle" fill="#fff">or REVISE + gaps</text>
+
+  <text x="510" y="282" font-size="17" font-weight="800" text-anchor="middle" class="ink">Kept out</text>
+  <g fill="none" class="out" stroke-width="2" stroke-dasharray="7 6">
+    <rect x="330" y="300" width="240" height="50" rx="12"/>
+    <rect x="590" y="300" width="200" height="50" rx="12"/>
+  </g>
+  <g font-size="17" font-weight="700" text-anchor="middle" class="muted">
+    <text x="450" y="331">✕ Agent's conversation</text>
+    <text x="690" y="331">✕ Calling tools</text>
+  </g>
+</svg>

@@ -47,7 +47,7 @@ Once you know the patterns, you can recognize the shape of a problem and reuse a
 | Prompt chaining | Break a task into steps, where each step uses the last result | Planned |
 | Routing | Send each request to the right specialist | Planned |
 | Orchestrator-workers | Let a lead agent plan the work and hand it out | Planned |
-| Evaluator-optimizer | Let one agent write and another check, until it's good | Planned |
+| [Evaluator-optimizer](evaluatoroptimizer/) | Let one agent write and another check, until it's good | Ready: workflow and agent |
 
 ## Quick start
 

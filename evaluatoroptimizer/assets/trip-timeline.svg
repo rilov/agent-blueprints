@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" role="img" aria-label="Round 1 says only 'take Bus 12 after 9' with no times or way home. Round 2 is a full timetable: bus at 09:10, 60 minutes at the market, home at 11:20, 40 minutes before the noon deadline">
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+    .ink{fill:#16171D}.muted{fill:#5B5E6B}.panel{fill:#F2F3F8}.grid{stroke:#C9CBD6}.tag{fill:#7A3CF0}.slack{stroke:#5B5E6B}
+    @media (prefers-color-scheme:dark){.ink{fill:#ECEDF3}.muted{fill:#A5A8B8}.panel{fill:#262833}.grid{stroke:#4A4C5A}.tag{fill:#B49BFF}.slack{stroke:#A5A8B8}}
+  </style>
+  <rect x="4" y="4" width="892" height="322" rx="22" class="panel"/>
+  <g class="grid" stroke-width="1.5" stroke-dasharray="5 6">
+    <path d="M150 44V270"/><path d="M380 44V270"/><path d="M610 44V270"/>
+  </g>
+  <g font-size="17" font-weight="600" text-anchor="middle" class="muted">
+    <text x="150" y="292">09:00</text><text x="380" y="292">10:00</text><text x="610" y="292">11:00</text><text x="840" y="292">12:00</text>
+  </g>
+  <path d="M840 40V270" stroke="#DE1283" stroke-width="3"/>
+  <text x="832" y="34" font-size="16" font-weight="800" text-anchor="end" fill="#DE1283">Home by noon</text>
+
+  <text x="30" y="80" font-size="20" font-weight="800" class="ink">Round 1</text>
+  <text x="30" y="104" font-size="17" class="muted">REVISE</text>
+  <rect x="150" y="60" width="680" height="46" rx="9" fill="none" stroke="#8E91A0" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="490" y="89" font-size="17" text-anchor="middle" class="muted">"Take Bus 12 after 9."  Which bus? How long? How home?</text>
+
+  <text x="30" y="170" font-size="20" font-weight="800" class="ink">Round 2</text>
+  <text x="30" y="194" font-size="17" font-weight="800" class="tag">PASS</text>
+  <g fill="#8E91A0">
+    <rect x="150" y="150" width="38" height="46"/>
+    <rect x="284" y="150" width="19" height="46"/>
+    <rect x="533" y="150" width="39" height="46"/>
+    <rect x="668" y="150" width="19" height="46"/>
+  </g>
+  <rect x="188" y="150" width="96" height="46" fill="#00806A"/>
+  <rect x="303" y="150" width="230" height="46" fill="#7A3CF0"/>
+  <rect x="572" y="150" width="96" height="46" fill="#00806A"/>
+  <g font-size="16" font-weight="700" text-anchor="middle" fill="#fff">
+    <text x="236" y="178">Bus 12</text>
+    <text x="418" y="178">Market · 60 min</text>
+    <text x="620" y="178">Bus 12</text>
+  </g>
+  <path d="M687 212V222H836V212" fill="none" class="slack" stroke-width="2"/>
+  <text x="762" y="244" font-size="16" font-weight="700" text-anchor="middle" class="ink">40 min to spare</text>
+  <text x="687" y="142" font-size="15" text-anchor="middle" class="muted">home 11:20</text>
+
+  <g font-size="15" class="muted">
+    <rect x="150" y="304" width="14" height="14" rx="3" fill="#8E91A0"/><text x="170" y="316">walk / wait</text>
+    <rect x="270" y="304" width="14" height="14" rx="3" fill="#00806A"/><text x="290" y="316">Bus 12 (25 min)</text>
+    <rect x="420" y="304" width="14" height="14" rx="3" fill="#7A3CF0"/><text x="440" y="316">at the market</text>
+  </g>
+</svg>

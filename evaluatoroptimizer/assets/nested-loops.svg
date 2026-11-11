@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" role="img" aria-label="Two loops: the ReAct loop of Thought, Action and Observation runs inside each round of an outer loop, where the evaluator checks the draft and sends feedback back to the agent">
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+    .ink{fill:#16171D}.muted{fill:#5B5E6B}.panel{fill:#F2F3F8}.wire{stroke:#8E91A0}.inner{stroke:#00806A}
+    @media (prefers-color-scheme:dark){.ink{fill:#ECEDF3}.muted{fill:#A5A8B8}.panel{fill:#262833}.inner{stroke:#2BB596}}
+  </style>
+  <defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#8E91A0"/></marker></defs>
+  <rect x="4" y="4" width="700" height="392" rx="22" class="panel"/>
+  <text x="30" y="44" font-size="20" font-weight="800" class="ink">Outer loop: draft → check → revise (up to 3 rounds)</text>
+  <rect x="30" y="70" width="400" height="200" rx="16" fill="none" class="inner" stroke-width="2.5" stroke-dasharray="8 6"/>
+  <text x="50" y="102" font-size="17" font-weight="700" class="muted">Inner ReAct loop (up to 6 turns)</text>
+  <g fill="none" class="wire" stroke-width="2.5" marker-end="url(#a)">
+    <path d="M150 153H176"/>
+    <path d="M280 153H306"/>
+    <path d="M365 176C365 230 100 230 100 182"/>
+    <path d="M430 170H496"/>
+    <path d="M585 220C585 335 230 335 230 276"/>
+    <path d="M670 170H718"/>
+  </g>
+  <g text-anchor="middle" fill="#fff" font-size="17" font-weight="700">
+    <rect x="50" y="130" width="100" height="46" rx="12" fill="#00806A"/><text x="100" y="159">Thought</text>
+    <rect x="180" y="130" width="100" height="46" rx="12" fill="#00806A"/><text x="230" y="159">Action</text>
+    <rect x="310" y="130" width="110" height="46" rx="12" fill="#00806A"/><text x="365" y="159">Observation</text>
+  </g>
+  <text x="232" y="252" font-size="16" text-anchor="middle" class="muted">repeat until ready to answer</text>
+  <rect x="500" y="120" width="170" height="100" rx="16" fill="#C94F02"/>
+  <text x="585" y="165" font-size="21" font-weight="700" text-anchor="middle" fill="#fff">Evaluator</text>
+  <text x="585" y="193" font-size="17" text-anchor="middle" fill="#fff">PASS or REVISE?</text>
+  <text x="465" y="158" font-size="16" text-anchor="middle" class="muted">draft</text>
+  <text x="400" y="352" font-size="17" font-weight="800" text-anchor="middle" class="ink">REVISE</text>
+  <text x="400" y="374" font-size="16" text-anchor="middle" class="muted">feedback is added to the agent's own messages</text>
+  <text x="694" y="158" font-size="16" font-weight="800" text-anchor="middle" class="ink">PASS</text>
+  <rect x="722" y="120" width="168" height="100" rx="16" fill="#7A3CF0"/>
+  <text x="806" y="165" font-size="21" font-weight="700" text-anchor="middle" fill="#fff">Final</text>
+  <text x="806" y="193" font-size="21" font-weight="700" text-anchor="middle" fill="#fff">answer</text>
+</svg>
