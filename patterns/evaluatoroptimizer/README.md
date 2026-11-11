@@ -2,7 +2,7 @@
 
 **Let one agent write an answer and another check it, until it's good.**
 
-[← All blueprints](../README.md) · Builds on [ReAct](../patterns/react/)
+[← All blueprints](../../README.md) · Builds on [ReAct](../react/)
 
 **On this page**
 
