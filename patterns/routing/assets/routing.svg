@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" role="img" aria-label="A question goes to a router. The router picks one of four routes: fact goes to a lookup, times goes to code, plan goes to the ReAct agent, and other gets a fixed reply">
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+    .ink{fill:#16171D}.muted{fill:#5B5E6B}.panel{fill:#F2F3F8}.wire{stroke:#8E91A0}.tag{fill:#7A3CF0}
+    @media (prefers-color-scheme:dark){.ink{fill:#ECEDF3}.muted{fill:#A5A8B8}.panel{fill:#262833}.tag{fill:#B49BFF}}
+  </style>
+  <defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#8E91A0"/></marker></defs>
+  <g fill="none" class="wire" stroke-width="2.5" marker-end="url(#a)">
+    <path d="M160 245H228"/>
+    <path d="M390 245C470 245 480 70 558 70"/>
+    <path d="M390 245C470 245 480 176 558 176"/>
+    <path d="M390 245C470 245 480 282 558 282"/>
+    <path d="M390 245C470 245 480 388 558 388"/>
+  </g>
+  <rect x="10" y="195" width="150" height="100" rx="16" fill="#1473E6"/>
+  <rect x="230" y="195" width="160" height="100" rx="16" fill="#C94F02"/>
+  <g text-anchor="middle" fill="#fff">
+    <text x="85" y="240" font-size="21" font-weight="700">Question</text>
+    <text x="85" y="268" font-size="17">any wording</text>
+    <text x="310" y="240" font-size="21" font-weight="700">Router</text>
+    <text x="310" y="268" font-size="17">picks one route</text>
+    <rect x="560" y="28" width="330" height="84" rx="16" fill="#00806A"/>
+    <text x="725" y="64" font-size="21" font-weight="700">fact  →  Lookup</text>
+    <text x="725" y="91" font-size="16">Market opens at 08:00</text>
+    <rect x="560" y="134" width="330" height="84" rx="16" fill="#1473E6"/>
+    <text x="725" y="170" font-size="21" font-weight="700">times  →  Code</text>
+    <text x="725" y="197" font-size="16">Home at 11:20. No model.</text>
+    <rect x="560" y="240" width="330" height="84" rx="16" fill="#7A3CF0"/>
+    <text x="725" y="276" font-size="21" font-weight="700">plan  →  ReAct agent</text>
+    <text x="725" y="303" font-size="16">Thinks, checks, then answers</text>
+    <rect x="560" y="346" width="330" height="84" rx="16" fill="#5B5E6B"/>
+    <text x="725" y="382" font-size="21" font-weight="700">other  →  Fixed reply</text>
+    <text x="725" y="409" font-size="16">“I only help with the market”</text>
+  </g>
+  <text x="310" y="322" font-size="16" text-anchor="middle" class="muted">It does not answer.</text>
+  <text x="310" y="344" font-size="16" text-anchor="middle" class="muted">It only sorts.</text>
+  <text x="200" y="60" font-size="22" font-weight="800" text-anchor="middle" class="tag">One question, one route</text>
+</svg>
