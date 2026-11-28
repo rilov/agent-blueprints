@@ -46,6 +46,7 @@ Once you know the patterns, you can recognize the shape of a problem and reuse a
 | [ReAct](patterns/react/) | Think, act, look, repeat - until the agent knows enough | Ready: workflow and agent |
 | [Prompt chaining](patterns/prompt-chaining/) | Break a task into fixed steps, where each step uses the last result | Ready: workflow |
 | [Routing](patterns/routing/) | Send each request to the right specialist | Ready: workflow and agent |
+| [Memory](patterns/memory/) | Remember what people told you, and what went wrong last time | Ready: workflow and real model |
 | Orchestrator-workers | Let a lead agent plan the work and hand it out | Planned |
 | [Evaluator-optimizer](patterns/evaluatoroptimizer/) | Let one agent write and another check, until it's good | Ready: workflow and agent |
 
